@@ -73,64 +73,86 @@ header {
     }
 }
 
-
 #headline {
     #headline-left {
-        padding-left: 7%;
-        height: 380px;
+        display: flex;
+        align-items: center;
 
-        #headline-text {
-            text-align: justify;
+        #headline-content {
+            width: 500px;
+            margin-top: 60px;
+            margin-left: auto;
+            padding-left: 5%;
+            padding-right: 20px;
 
-            #headline-product-title { 
-                text-transform: uppercase;
-                font-weight: bold;
+            #headline-text {
+                text-align: justify;
+                #headline-product-title { 
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                #headline-product-des {
+                    font-size: 0.65rem;
+                }
+                .btn-sm { width: 100%; } 
             }
-        }
-
-        .btn-sm { width: 100%; } 
-
-        .btn-headline {
-            width: fit-content;
     
-            i { 
-                color: lightgray; 
-                font-size: 0.8rem; 
+            .headline-btns {
+                width: fit-content;
+                font-size: 0.7rem;
+                i { color: lightgray; }
+                .active { color: $green;}
             }
-
-            .active { color: $green;}
+            .headline-btns:hover { cursor: pointer; }
+            .headline-btns * { pointer-events: none; }
         }
-
-        .btn-headline:hover { cursor: pointer; }
-        .btn-headline * { pointer-events: none; }
     }
 
     #headline-right {
-        .bg-image {
-            background-image: url("../public/images/frames/bg-headline.jpg");
-            background-position: center;
+        #headline-bg {
+            background-image: linear-gradient(rgba($green, 0.3), rgba($green, 0.3)),
+                        url("../public/images/frames/bg-headline.jpg");
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: none;
+            border: none;
             filter: blur(3px);
-            margin-top: -70px;
-            height: 500px;
+            height: 450px;
         }
-    
-        .bg-form {
+
+        #headline-form {
             position: absolute;
-            background-color: rgba($color: $green, $alpha: 0.3);
             top: 0;
-            height: 500px;
-            padding-top: 100px;
+            padding-top: 90px;
             padding-left: 20px;
-            padding-right: 5%;
+            width: 250px;
             color: white;
+            
+            label { margin: 0; }
+
         }
     }
+}
 
-    @media screen and (max-width: 768px) {
-        #headline-left { 
-            padding-right: 7%;
+@media (max-width: 767px) {
+    header { position: relative; }
+
+    #headline {
+        height: fit-content !important;
+
+        #headline-left {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
+
+        #headline-content {
+            width: 90% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            margin-top: 0 !important;   
+        }
+
         #headline-right { display: none; }
     }
 }
@@ -156,21 +178,12 @@ form {
 
 #about {
     #about-left {
-        position: relative;
-        
-        .bg-image {
-            background-image: url("../public/images/frames/bg-about.png");
+        #about-bg {
+            background-image: linear-gradient(to right, rgba($color: $green-light, $alpha: 0.2) 0%, rgba($color: $green, $alpha: 1) 100%),
+                                url("../public/images/frames/bg-about.png");
             background-position: center;
             background-size: cover;
             height: 100%;
-        }
-    
-        .bg-front {
-            position: absolute;
-            background: linear-gradient(to right, rgba($color: $green-light, $alpha: 0.2) 0%, rgba($color: $green, $alpha: 1) 100%);
-            top: 0;
-            height: 100%;
-            width: 100%;
         }
     }
 
@@ -178,8 +191,10 @@ form {
         background-color: $green;
         color: white;
         
-        #about-content {
-            padding-right: 5%;
+        #about-content { padding-right: 5%; }
+
+        @media (max-width: 767px) {
+            #about-content { padding-left: 5%; }
         }
     }
 }

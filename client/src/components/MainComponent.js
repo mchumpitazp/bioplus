@@ -2,7 +2,6 @@ import React from "react";
 
 // Components
 import Header from "./HeaderComponent";
-import Header2 from "./Header2Component";
 import Headline from "./HeadlineComponent";
 import About from "./AboutComponent";
 import Products from "./ProductsComponent";
@@ -60,7 +59,7 @@ function Main ({ products, fetchProducts }) {
     } else {
         return (
             <React.Fragment>
-                <Header2 />
+                <Header />
                 <Headline 
                     products={products.products.filter(p => p.headline)}
                     toggleModal={toggleModal} 

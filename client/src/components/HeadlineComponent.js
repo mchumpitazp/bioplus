@@ -57,7 +57,7 @@ const MemoizedRenderButtons = React.memo (
             <Row className='justify-content-center mt-3'>
                 { products.map((_, index) => {
                     return (
-                        <div key={index} data-key={index} className='btn-headline px-0 mx-2 my-1' onClick={handleClick}>
+                        <div key={index} data-key={index} className='headline-btns px-0 mx-2 my-1' onClick={handleClick}>
                             {                    
                                 index === 0 ?
                                 <i className='btn-hl bi bi-circle-fill active'></i>
@@ -77,8 +77,32 @@ function Headline (props) {
 
     return (
         <section id='headline'>
-            <Row> 
-                <Col className='col-12 col-md-8 mt-5' id='headline-left'>
+            <Row className='m-0'>
+                <Col className='col-md-7 p-0' id='headline-left'>
+                    <div id='headline-content'>
+                        <RenderProduct
+                            product={props.products[index]}
+                            toggleModal={props.toggleModal}
+                            setModalProduct={props.setModalProduct} />
+                        <MemoizedRenderButtons  
+                            setIndex={setIndex}
+                            products={props.products} />
+                    </div>
+                </Col>
+
+                <Col className='col-md-5 p-0' id='headline-right'>
+                    <div id='headline-bg'></div>
+                    <div id='headline-form'>
+                        <h5 className='mb-3'><strong>Submit your application</strong></h5>
+                        <MyForm colClassName="col-12" buttonInner="CONTACT WITH ME!" />
+                    </div>
+                    
+                </Col>
+            </Row>
+        
+
+            {/* <Row> 
+                <Col className='col-12 col-md-8' id='headline-left'>
                     <RenderProduct 
                         product={props.products[index]}
                         toggleModal={props.toggleModal}
@@ -97,7 +121,7 @@ function Headline (props) {
                         <MyForm colClassName="col-12" buttonInner="CONTACT WITH ME!" />
                     </div>
                 </Col>
-            </Row>
+            </Row> */}
         </section>
     );  
 }

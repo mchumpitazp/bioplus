@@ -6,8 +6,8 @@ function About () {
         <section id="about">
             <Row>
                 <Col md className="col-md-4 p-0" id="about-left">
-                    <div className="bg-image"></div>
-                    <div className="bg-front"></div>
+                    <div id="about-bg"></div>
+                    {/* <div className="bg-front"></div> */}
                 </Col>
                 <Col md className="col-md-8" id="about-right">
                     <div className="my-5" id="about-content">
