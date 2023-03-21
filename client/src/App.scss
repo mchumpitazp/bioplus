@@ -23,11 +23,6 @@ p  { font-size: 0.75rem; }
 .btn:hover { background: $green-dark; }
 
 // Classes
-.pad-x-5 {
-    width: 767px;
-    margin: auto;
-}
-
 .img-container {
     display: flex;
     justify-content: center;
@@ -191,22 +186,21 @@ form {
         background-color: $green;
         color: white;
         
-        #about-content { 
-            width: 540px;
-        }
+        #about-content { width: 540px; }
 
         @media (max-width: 880px) {
             #about-content { width: 90%; }
         }
         @media (max-width: 767px) {
-            #about-content { 
-                margin: auto;
-            }
+            #about-content { margin: auto; }
         }
     }
 }
 
 #products {
+    width: 767px;
+    margin: auto;
+
     .btn-icon {
         width: fit-content !important;
         padding: 0.4rem 0.6rem;
@@ -240,4 +234,8 @@ form {
         max-width: 80%;
         max-height: 80%;
     }
+}
+
+@media (max-width: 850px) {
+    #products { width: 90%; }
 }

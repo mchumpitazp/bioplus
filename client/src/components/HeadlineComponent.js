@@ -99,29 +99,6 @@ function Headline (props) {
                     
                 </Col>
             </Row>
-        
-
-            {/* <Row> 
-                <Col className='col-12 col-md-8' id='headline-left'>
-                    <RenderProduct 
-                        product={props.products[index]}
-                        toggleModal={props.toggleModal}
-                        setModalProduct={props.setModalProduct} />
-                    <MemoizedRenderButtons  
-                        setIndex={setIndex}
-                        products={props.products} />
-                </Col>
-
-                <Col className='col-0 col-md-4' id='headline-right'>
-                    <div className='bg-image'></div>
-                    <div className='bg-form'>
-                        <Row>
-                            <h5 className='mb-3'><strong>Submit your application</strong></h5>
-                        </Row>
-                        <MyForm colClassName="col-12" buttonInner="CONTACT WITH ME!" />
-                    </div>
-                </Col>
-            </Row> */}
         </section>
     );  
 }

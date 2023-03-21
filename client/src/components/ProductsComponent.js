@@ -1,6 +1,6 @@
 import React from "react";
 import ReactReadMoreReadLess from 'react-read-more-read-less';
-import { Button, Col, Container, Row } from "reactstrap";
+import { Button, Col, Row } from "reactstrap";
 
 function RenderProducts (props) {
     
@@ -61,7 +61,7 @@ function Products (props) {
         const handleProducts = () => {
             if (window.innerWidth < 576) {
                 setQuantity(1);
-            } else if (window.innerWidth < 992) {
+            } else if (window.innerWidth < 768) {
                 setQuantity(3);
             } else {
                 setQuantity(4);
@@ -86,14 +86,14 @@ function Products (props) {
     }
 
     return (
-        <section id="products" className="pad-x-5 py-5">
-            <header className="d-flex justify-content-between align-items-center mb-3">
+        <section id="products" className="py-5">
+            <div className="d-flex justify-content-between align-items-center mb-3">
                 <h4 className="m-0"><strong>The most interesting offers</strong></h4>
                 <div>
                     <i className="btn btn-icon bi-chevron-left"  onClick={handlePrevious}></i>
                     <i className="btn btn-icon bi-chevron-right" onClick={handleNext}></i>
                 </div>
-            </header>
+            </div>
             <RenderProducts 
                 {...props}
                 products={props.products}
