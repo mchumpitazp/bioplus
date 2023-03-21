@@ -74,7 +74,7 @@ header {
         align-items: center;
 
         #headline-content {
-            width: 500px;
+            width: 550px;
             margin-top: 60px;
             margin-left: auto;
             padding-left: 5%;
@@ -113,7 +113,7 @@ header {
             box-shadow: none;
             border: none;
             filter: blur(3px);
-            height: 450px;
+            height: 470px;
         }
 
         #headline-form {
@@ -124,7 +124,14 @@ header {
             width: 250px;
             color: white;
             
-            label { margin: 0; }
+            form {
+                label { margin: 0; }
+
+                .col-12 > div { margin-bottom: 0.3rem !important; }
+
+                .btn { margin-top: 1rem; }
+            }
+            
 
         }
     }
@@ -169,6 +176,8 @@ form {
     .formProductInput { text-transform: uppercase; }
     
     p { color: $green; }
+
+    .invalid-feedback { font-size: 0.7rem; }
 }
 
 #about {
