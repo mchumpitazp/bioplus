@@ -191,10 +191,17 @@ form {
         background-color: $green;
         color: white;
         
-        #about-content { padding-right: 5%; }
+        #about-content { 
+            width: 540px;
+        }
 
+        @media (max-width: 880px) {
+            #about-content { width: 90%; }
+        }
         @media (max-width: 767px) {
-            #about-content { padding-left: 5%; }
+            #about-content { 
+                margin: auto;
+            }
         }
     }
 }
