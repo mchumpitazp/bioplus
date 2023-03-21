@@ -9,9 +9,9 @@ function RenderProducts (props) {
         const imgRef = parent.querySelector('img');
 
         if (e.type === 'mouseenter') {
-            imgRef.src = '/images' + imgRef.alt.replace('1.', '2.');
+            imgRef.src = imgRef.src.replace('1.', '2.');
         } else {
-            imgRef.src = '/images' + imgRef.alt;
+            imgRef.src = imgRef.src.replace('2.', '1.');
         }
     };
 
@@ -30,8 +30,7 @@ function RenderProducts (props) {
                             onMouseLeave={handleHover}>   
     
                             <figure className="img-container">
-                                <img src={'/images' + product.image} alt={product.image}/>
-                                {/* <img src={'/images' + product.image} alt={product.name}/> */}
+                                <img src={'/images' + product.image} alt={product.name}/>
                             </figure>
                             <h6><strong>{product.title}</strong></h6>
                             <h5><strong>{`€ ${product.price}`}</strong></h5>
