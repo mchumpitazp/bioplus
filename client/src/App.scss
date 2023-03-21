@@ -1,0 +1,221 @@
+// Colors
+$green: #297456;
+$green-dark: #1C5039;
+$green-light: #41ce95;
+$yellow: #F9C339;
+$yellow-dark: #d1a22d;
+
+// Overwrite font sizes
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+p  { font-size: 0.75rem; }
+
+// Overwrite buttons
+.btn {
+    font-size: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    background: $green;
+    border-radius: 0%;
+    border: none;
+}
+
+.btn:hover { background: $green-dark; }
+
+// Classes
+.pad-x-5 {
+    width: 767px;
+    margin: auto;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+    img {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        max-height: 90%;
+    }
+}
+
+// Loading Spinner
+#spinner-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .spinner-border { color: $green; }
+}
+
+// Sections
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba($color: white, $alpha: 0.3);
+
+    .navbar {
+        width: 767px;
+        margin: auto;
+        .container-fluid { padding: 0; }
+    }
+    .nav-item {
+        font-size: 1rem;
+        i { color: $green; }
+        span { font-weight: 600; }
+    }
+    @media (max-width: 850px) {
+        .navbar { width: 90%; }
+    }
+}
+
+
+#headline {
+    #headline-left {
+        padding-left: 7%;
+        height: 380px;
+
+        #headline-text {
+            text-align: justify;
+
+            #headline-product-title { 
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+
+        .btn-sm { width: 100%; } 
+
+        .btn-headline {
+            width: fit-content;
+    
+            i { 
+                color: lightgray; 
+                font-size: 0.8rem; 
+            }
+
+            .active { color: $green;}
+        }
+
+        .btn-headline:hover { cursor: pointer; }
+        .btn-headline * { pointer-events: none; }
+    }
+
+    #headline-right {
+        .bg-image {
+            background-image: url("../public/images/frames/bg-headline.jpg");
+            background-position: center;
+            background-size: cover;
+            filter: blur(3px);
+            margin-top: -70px;
+            height: 500px;
+        }
+    
+        .bg-form {
+            position: absolute;
+            background-color: rgba($color: $green, $alpha: 0.3);
+            top: 0;
+            height: 500px;
+            padding-top: 100px;
+            padding-left: 20px;
+            padding-right: 5%;
+            color: white;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        #headline-left { 
+            padding-right: 7%;
+        }
+        #headline-right { display: none; }
+    }
+}
+
+form {
+    .form-label, .form-control { font-size: 0.8rem; }
+    .form-control { border-radius: 0;}
+
+    .btn {
+        width: 100%;
+        background: $yellow;
+        color: black;
+    }
+
+    .btn:hover {
+        background: $yellow-dark;
+    }
+
+    .formProductInput { text-transform: uppercase; }
+    
+    p { color: $green; }
+}
+
+#about {
+    #about-left {
+        position: relative;
+        
+        .bg-image {
+            background-image: url("../public/images/frames/bg-about.png");
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+        }
+    
+        .bg-front {
+            position: absolute;
+            background: linear-gradient(to right, rgba($color: $green-light, $alpha: 0.2) 0%, rgba($color: $green, $alpha: 1) 100%);
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    #about-right {
+        background-color: $green;
+        color: white;
+        
+        #about-content {
+            padding-right: 5%;
+        }
+    }
+}
+
+#products {
+    .btn-icon {
+        width: fit-content !important;
+        padding: 0.4rem 0.6rem;
+        margin: 0.2rem;
+        font-size: 0.6rem;
+        background-color: $green;
+        color: white;
+        -webkit-text-stroke: 1px;
+    }
+    
+    .col * { pointer-events: none; }
+
+    h6 { text-transform: uppercase; }
+
+    p { text-align: justify; }
+
+    .react-read-more-read-less {
+        display: block;
+        color: $green;
+        text-decoration: underline;
+        margin-top: 0.5rem;
+        pointer-events: all;
+    }
+
+    .btn { 
+        width: 100%;
+        pointer-events: all;
+    }
+
+    img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
