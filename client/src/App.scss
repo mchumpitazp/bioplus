@@ -3,7 +3,7 @@ $green: #297456;
 $green-dark: #1C5039;
 $green-light: #41ce95;
 $yellow: #F9C339;
-$yellow-dark: #d1a22d;
+$yellow-dark: #DCA310;
 
 // Overwrite font sizes
 h4 { font-size: 1.25rem; }
@@ -247,4 +247,262 @@ form {
 
 @media (max-width: 850px) {
     #products { width: 90%; }
+}
+
+#promo {
+    #promo-advantages {
+        background-color: #297456;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    #promo-counterdown {
+        background-image: linear-gradient(to right, rgba($color: $green, $alpha: 1) 0%, rgba($color: $green-dark, $alpha: 0.5) 100%),
+                            url("../public/images/frames/bg-promo.png");
+        background-position: center;
+        background-size: cover;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        display: flex;
+        align-items: center;
+
+        #counterdown {
+            text-align: center;
+            height: fit-content;
+            width: 375px;
+            margin-right: auto;
+            padding: 2rem;
+            background-color: $yellow;
+
+            span {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+#advantages {
+    color: white;
+    width: 375px;
+    margin-left: auto;
+
+    .advantage {
+        display: flex;
+        margin-top: 1rem;
+
+        .advantage-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        i { 
+            font-size: 2.5rem;
+            color: $yellow-dark;
+        }
+        p { margin: 0;}
+    }
+}
+
+@media (max-width: 860px) {
+    #counterdown { width: 90% !important; }
+    #advantages { width: 90%; }
+}
+
+@media (max-width: 767px) {
+    #counterdown {
+        margin-left: auto;
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+    #advantages { margin-right: auto; }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    #promo {
+        #promo-counterdown {
+            background-image: linear-gradient(to right, rgba($color: $yellow, $alpha: 1) 10%, rgba($color: $yellow-dark, $alpha: 0.5) 100%),
+                            url("../public/images/frames/bg-promo.png");
+
+            #counterdown {
+                text-align: start;
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    #promo {
+        #promo-advantages {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        #promo-counterdown {
+            background-image: none  ;
+            background-color: #F9C339;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+#scopes {
+    width: 767px;
+    margin: auto;
+
+    .row { margin: 0; }
+
+    .col {
+        padding: 0;
+        img { max-height: 100%; }
+    }
+
+    .btn-icon {
+        width: fit-content !important;
+        padding: 0.4rem 0.6rem;
+        margin: 0.2rem;
+        font-size: 0.6rem;
+        background-color: $green;
+        color: white;
+        -webkit-text-stroke: 1px;
+    }
+}
+
+@media (max-width: 850px) {
+    #scopes { width: 90%; }
+}
+
+#stages {
+    background-color: #F0F4F3;
+    height: fit-content;
+
+    #stages-content {
+        width: 767px;
+        margin: auto;
+
+        .stage {
+            text-align: center;
+
+            .stage-number {
+                color: white;
+                margin-bottom: 0;
+                font-size: 10rem;
+                font-weight: 800;
+            }
+            .stage-text {
+                font-size: 0.9rem;
+                font-weight: 700;
+                margin-top: -8rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    #stages > #stages-content { width: 90%; }
+}
+
+@media (max-width: 575px) {
+    #stages {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        .stage {
+            display: flex;
+            justify-content: center;
+    
+            .row {
+                width: 100%;
+            }
+    
+            .stage-number {
+                font-size: 5rem !important;
+            }
+            .stage-text { 
+                display: flex;
+                align-items: center;
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+#form-section {
+    background-color: $green;
+    color: white;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    #form-container {
+        width: 767px;
+        margin: auto;
+        
+        .col > div {
+            margin-bottom: 0 !important;
+        }
+
+        .btn-form-container {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 0 !important;
+
+            .btn-form { padding: 0.5rem 1.5rem !important; }
+        }
+
+        .form-required { display: none; }
+    }
+}
+
+@media (max-width: 850px) {
+    #form-section > #form-container { 
+        width: 90%;
+
+        .col > div { margin-bottom: 1rem !important; }
+
+        .btn-form-container { margin-top: 1rem;}
+    }
+}
+
+footer {
+    background-color: #3C3C3C;
+    color: white;
+
+    #footer-content {
+        width: 767px;
+        margin: auto;
+
+        #footer-logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        h5 { color: $yellow; }
+
+        i { color: $green; }
+
+        .img-container { height: 50px; }
+
+        a {
+            font-size: 0.875rem;        
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover { color: $green; }
+    }
+}
+
+@media (max-width: 850px) {
+    footer > #footer-content { width: 90%; }
+}
+
+@media (max-width: 575px) {
+    #footer-logo {
+        align-items: center !important;
+        margin-top: 2rem;
+    }
 }

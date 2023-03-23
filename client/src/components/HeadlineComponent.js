@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import $ from 'jquery';
-import MyForm from './FormComponent';
+import MyForm from './MyFormComponent';
 
 function RenderProduct (props) {
 

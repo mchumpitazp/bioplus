@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
-import MyForm from "./FormComponent";
+import MyForm from "./MyFormComponent";
 
 function ModalOrder ({ modal, toggle, product }) {
     return (

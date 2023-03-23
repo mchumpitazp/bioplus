@@ -5,6 +5,11 @@ import Header from "./HeaderComponent";
 import Headline from "./HeadlineComponent";
 import About from "./AboutComponent";
 import Products from "./ProductsComponent";
+import Promo from "./PromoComponent";
+import Scopes from "./ScopesComponent";
+import Stages from "./StagesComponent";
+import Form from "./FormComponent";
+import Footer from "./FooterComponent";
 import ModalOrder from "./ModalOrderComponent";
 
 // Redux
@@ -69,6 +74,11 @@ function Main ({ products, fetchProducts }) {
                     products={products.products.filter(p => !p.headline)}
                     toggleModal={toggleModal} 
                     setModalProduct={setModalProduct} />
+                <Promo toggleModal={toggleModal} setModalProduct={setModalProduct} />
+                <Scopes />
+                <Stages />
+                <Form />
+                <Footer />
                 <ModalOrder modal={modal} toggle={toggleModal} product={modalProduct} />
             </React.Fragment>
         )
