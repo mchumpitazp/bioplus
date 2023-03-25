@@ -8,11 +8,12 @@ var cors = require('cors');
 var helmet = require('helmet');
 var mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
+
 var productsRouter = require('./routes/productsRouter');
 var ordersRouter = require('./routes/ordersRouter');
 
 // connect to database and port
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const URL = 'mongodb://localhost:27017/be';
 const connect = mongoose.connect(URL);
 connect.then(() => {

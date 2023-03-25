@@ -46,7 +46,7 @@ function Main ({ products, fetchProducts }) {
             });
             setTimeout(() => setLoading(false), 1000);
         }        
-    }, [products.isLoading]);
+    }, [products]);
 
     React.useEffect(() =>{
         if (!isLoading) {

@@ -17,7 +17,7 @@ function Header () {
                     </NavItem>
                     <NavItem className='nav-item-sm'>
                             <i className='bi-telephone-outbound'></i>
-                            <span className='ms-2'>+372 (698) 99 65</span>
+                            <span className='ms-2'>+82 (308) 64 01 10</span>
                     </NavItem>
                 </Nav>
             </Navbar>

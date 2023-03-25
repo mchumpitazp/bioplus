@@ -2,25 +2,6 @@ import React from "react";
 import { Col, Row } from "reactstrap";
 
 function Footer () {
-
-    const footerRef = React.useRef(null);
-
-    // React.useEffect(() => {
-    //     const handleFooter = () => {
-    //         if (window.innerWidth < 992) {
-    //             footerRef.current.classList.remove('align-items-start');
-    //             footerRef.current.classList.add('align-items-center');
-    //         } else {
-    //             footerRef.current.classList.remove('align-items-center');
-    //             footerRef.current.classList.add('align-items-start');
-    //         }
-    //     }
-    //     handleFooter();
-
-    //     window.addEventListener("resize", handleFooter);
-    //     return () => window.removeEventListener("resize", handleFooter);
-    // }, []);
-    
     return (
         <footer>
             <section id="footer-content" className="py-5">
@@ -30,7 +11,7 @@ function Footer () {
                         <div className="d-flex flex-column justify-content-around">
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-geo me-2"></i>
-                                <h6 className="m-0">Maneezi 8-9, Tallinn, 10115 Harjumaa, Estonia</h6>
+                                <h6 className="m-0">#1801, A unit, 2nd Seongnam Ulim Lions Valley, Sagimakgol-ro 45beon-gil, Jungwon-gu, Seongnam-si Gyeonggi-do, Republic of Korea</h6>
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-envelope me-2"></i>
@@ -38,7 +19,7 @@ function Footer () {
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-telephone me-2"></i>
-                                <h6 className="m-0">+372 (698) 99 65</h6>
+                                <h6 className="m-0">+82 (308) 64 01 10</h6>
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-shield-check me-2"></i>
