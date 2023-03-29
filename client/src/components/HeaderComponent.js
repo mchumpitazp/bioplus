@@ -11,9 +11,9 @@ function Header () {
                 </NavbarBrand>
 
                 <Nav className='ms-auto flex-row' navbar>
-                    <NavItem className='d-none d-sm-block me-4'>
+                    <NavItem className='d-none d-md-block me-4'>
                             <i className='bi-envelope'></i>
-                            <span className='ms-2'>sales@bioplus.com</span>
+                            <span className='ms-2'>info@bioplus-pharma.com</span>
                     </NavItem>
                     <NavItem className='nav-item-sm'>
                             <i className='bi-telephone-outbound'></i>

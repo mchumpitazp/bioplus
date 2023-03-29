@@ -15,7 +15,7 @@ function Footer () {
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-envelope me-2"></i>
-                                <h6 className="m-0">sales@bioplus.com</h6>
+                                <h6 className="m-0">info@bioplus-pharma.com</h6>
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-telephone me-2"></i>
@@ -23,13 +23,13 @@ function Footer () {
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-shield-check me-2"></i>
-                                <a href="https://www.termsfeed.com/live/325f4e18-a6f9-4e57-8243-a6fe4ad44cd4" target="_blank" rel="noreferrer">
+                                <a href="https://www.termsfeed.com/live/df0b14f0-ece8-47d0-ade1-9eb74dcb0a16" target="_blank" rel="noreferrer">
                                     Privacy Policy
                                 </a>
                             </div>
                             <div className="d-flex align-items-center my-1">
                                 <i className="bi-file-earmark-lock me-2"></i>
-                                <a href="https://www.termsfeed.com/live/306656cb-454e-48f1-a454-5d2dd4dc0524" target="_blank" rel="noreferrer">
+                                <a href="https://www.termsfeed.com/live/0a311242-9d59-4157-b70f-14b09b400ca4" target="_blank" rel="noreferrer">
                                     Terms and Conditions
                                 </a>
                             </div>
