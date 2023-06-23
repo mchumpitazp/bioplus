@@ -4,7 +4,7 @@ export const productsReducer = (state = {
         isLoading: true,
         errMess: null,
         products: []
-    }, action) => {
+    }, action: any) => {
         
     switch(action.type) {
         case ActionTypes.ADD_PRODUCTS:

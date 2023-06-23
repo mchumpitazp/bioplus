@@ -1,8 +1,12 @@
-import React from "react";
 import { Col, Row, Button } from "reactstrap";
 import Counterdown from "./CounterdownComponent";
 
-function Promo (props) {
+interface PromoProps {
+    toggleModal: () => void,
+    setModalProduct: (product: string) => void
+}
+
+function Promo (props: PromoProps) {
     const handleClick = () => {
         props.toggleModal();
         props.setModalProduct('');

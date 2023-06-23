@@ -2,11 +2,19 @@ import React from "react";
 import ReactReadMoreReadLess from 'react-read-more-read-less';
 import { Button, Col, Row } from "reactstrap";
 
-function RenderProducts (props) {
+interface RenderProductsProps {
+    products: any,
+    toggleModal: () => void,
+    setModalProduct: (product: string) => void,
+    current: number,
+    quantity: number
+}
+
+function RenderProducts (props: RenderProductsProps) {
     
-    const handleHover = (e) => {
-        const parent = (e.target.nodeName === "BUTTON") ? e.target.parentNode : e.target;
-        const imgRef = parent.querySelector('img');
+    const handleHover = (e: React.MouseEvent<HTMLElement>) => {
+        const parent = ((e.target as HTMLElement).nodeName === "BUTTON") ? (e.target as HTMLElement).parentNode : e.target;
+        const imgRef = (parent! as HTMLElement).querySelector('img')!;
 
         if (e.type === 'mouseenter') {
             imgRef.src = imgRef.src.replace('1.', '2.');
@@ -15,14 +23,14 @@ function RenderProducts (props) {
         }
     };
 
-    const handleClick = (productTitle) => {
+    const handleClick = (productTitle: string) => {
         props.toggleModal();
         props.setModalProduct(productTitle.toUpperCase());
     }
 
     return (
         <Row>
-            { props.products.map((product, index) => {
+            { props.products.map((product: any, index: number) => {
                 if (index >= props.current && index < (props.current + props.quantity)) {
                     return(
                         <Col key={product._id}
@@ -53,7 +61,13 @@ function RenderProducts (props) {
     );
 }
 
-function Products (props) {
+interface ProductsProps {
+    products: any,
+    toggleModal: () => void,
+    setModalProduct: (product: string) => void
+}
+
+function Products (props: ProductsProps) {
     const [current, setCurrent] = React.useState(0);
     const [quantity, setQuantity] = React.useState(1);
 

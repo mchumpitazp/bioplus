@@ -2,14 +2,21 @@ import React from "react";
 import { Form, Row, Col, FormGroup, Label, Input, Button, Alert, FormFeedback, Spinner } from 'reactstrap';
 import { baseUrl } from "../baseUrl";
 
-function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
+interface MyFormProps {
+    colClassName: string,
+    setId: boolean,
+    initProduct: string,
+    buttonInner: string
+}
+
+function MyForm (props: MyFormProps) {
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [product, setProduct] = React.useState('');
 
-    const [nameVal, setNameVal] = React.useState('');
-    const [emailVal, setEmailVal] = React.useState('');
-    const [productVal, setProductVal] = React.useState('');
+    const [nameVal, setNameVal] = React.useState<Boolean>();
+    const [emailVal, setEmailVal] = React.useState<Boolean>();
+    const [productVal, setProductVal] = React.useState<Boolean>();
 
     const [success, setSuccess] = React.useState(false);
     const [failed, setFailed] = React.useState(false);
@@ -17,8 +24,8 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
     const [spinnerOpen, setSpinnerOpen] = React.useState(false);
 
     React.useEffect(() => {
-        setProduct(initProduct);
-    }, [initProduct]);
+        setProduct(props.initProduct);
+    }, [props.initProduct]);
 
     React.useEffect(() => {
         if (validation) {
@@ -29,15 +36,15 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
     }, [validation]); 
 
     React.useEffect(() => {
-        let timeout;
+        let timeout: NodeJS.Timeout;
         if (success) {
-            timeout = setTimeout(() => { setSuccess(false); }, 2000);
+             timeout = setTimeout(() => { setSuccess(false); }, 2000);
         }
         return () => clearTimeout(timeout);
     }, [success]);
 
     React.useEffect(() => {
-        let timeout;
+        let timeout: NodeJS.Timeout;
         if (failed) {
             timeout = setTimeout(() => { setFailed(false) }, 2000);
         }
@@ -71,7 +78,7 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
             } else {
                 setFailed(true);
                 var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                error.response = response;
+                // error.response = response;
                 throw error;
             }
         },
@@ -102,7 +109,7 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
             setEmailVal(true);
         } else { setEmailVal(false); }
 
-        const productValue = document.querySelector('.formProductInput').value;
+        const productValue = (document.querySelector('.formProductInput') as HTMLInputElement).value;
         if (productValue !== '') {
             setProduct(productValue);
         }
@@ -111,10 +118,10 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
             setProductVal(true);
         } else { setProductVal(false); }
 
-        return (nameTmp & emailTmp & productTmp);
+        return (nameTmp && emailTmp && productTmp);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
         if (validateForm()) {
@@ -126,14 +133,14 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
     }
 
     return (
-        <Form id={setId? "form" : ""} noValidate onSubmit={handleSubmit}>            
+        <Form id={props.setId? "form" : ""} noValidate onSubmit={handleSubmit}>            
             <Row>
-                <Col className={colClassName}>
+                <Col className={props.colClassName}>
                     <FormGroup>
-                        <Label>Your name *</Label>       
-                        <Input type='text' required
+                        <Label for="name-input">Your name *</Label>       
+                        <Input id="name-input" type='text' required
                             value={name}
-                            onChange={e => setName(e.target.value)}
+                            onChange={(e: React.MouseEvent<HTMLInputElement>) => setName((e.target as HTMLInputElement).value)}
                             onClick={() => setNameVal(true)}
                             invalid={nameVal===false}/>
                         <FormFeedback>
@@ -141,12 +148,12 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
                         </FormFeedback>
                     </FormGroup>
                 </Col>
-                <Col className={colClassName}>
+                <Col className={props.colClassName}>
                     <FormGroup>
-                        <Label>Email *</Label>       
-                        <Input type='text' required
+                        <Label for="email-input">Email *</Label>       
+                        <Input id="email-input" type='text' required
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e: React.MouseEvent<HTMLInputElement>) => setEmail((e.target as HTMLInputElement).value)}
                             onClick={() => setEmailVal(true)}
                             invalid={emailVal===false}/>      
                             <FormFeedback>
@@ -154,13 +161,13 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
                             </FormFeedback>      
                     </FormGroup>
                 </Col>
-                <Col className={colClassName}>
+                <Col className={props.colClassName}>
                     <FormGroup>
-                        <Label>Name of Product *</Label>       
-                        <Input className='formProductInput'
+                        <Label for="product-input">Name of Product *</Label>       
+                        <Input id="product-input" className='formProductInput'
                             type='text' required
                             value={product}
-                            onChange={e => setProduct(e.target.value)}
+                            onChange={(e: React.MouseEvent<HTMLInputElement>) => setProduct((e.target as HTMLInputElement).value)}
                             onClick={() => setProductVal(true)}
                             invalid={productVal===false}/>
                         <FormFeedback>
@@ -182,8 +189,8 @@ function MyForm ({colClassName, setId=false, initProduct='', buttonInner}) {
                         <h6 className='text-center m-0' style={{fontSize: '0.75rem'}}>Thank you!</h6>
                     </Alert>
 
-                    <Button className="btn-form" onClick={(e) => handleSubmit(e)}>
-                        {buttonInner}
+                    <Button className="btn-form" onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSubmit(e)}>
+                        {props.buttonInner}
                     </Button>
                 </Col>
                 <Col className="form-required col-12">

@@ -1,11 +1,17 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 
-function RenderImages ({images, current, quantity}) {
+interface RenderImagesProps {
+    images: string[],
+    current: number,
+    quantity: number
+}
+
+function RenderImages (props: RenderImagesProps) {
     return (
         <Row>
-            { images.map((image, index) => {
-                if (index >= current && index < (current+quantity)) {
+            { props.images.map((image: string, index: number) => {
+                if (index >= props.current && index < (props.current + props.quantity)) {
                     return (
                         <Col key={index}>
                             <figure className="img-container">
@@ -22,7 +28,7 @@ function RenderImages ({images, current, quantity}) {
 function Scopes () {
     const images = ['scope1', 'scope2', 'scope3', 'scope4', 'scope5'];
     const [current, setCurrent] = React.useState(0);
-    const [quantity, setQuantity] = React.useState();
+    const [quantity, setQuantity] = React.useState(0);
 
     React.useLayoutEffect(() => {
         const handleImages = () => {

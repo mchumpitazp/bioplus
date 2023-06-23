@@ -3,15 +3,19 @@ import { Button, Col, Row } from 'reactstrap';
 import $ from 'jquery';
 import MyForm from './MyFormComponent';
 
-function RenderProduct (props) {
+interface RenderProductProps {
+    product: any,
+    toggleModal: () => void,
+    setModalProduct: (product: string) => void
+}
 
-    const handleClick = (e) => {
+function RenderProduct (props: RenderProductProps) {
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const productClicked = $(e.target).siblings('#headline-product-title').eq(0).text();
         props.setModalProduct(productClicked);
         props.toggleModal();
     }
-
-    console.log(props);
 
     return (
         <Row className='align-items-center'>
@@ -40,13 +44,19 @@ function RenderProduct (props) {
     );  
 }
 
-const MemoizedRenderButtons = React.memo (
-    function RenderButtons ({ setIndex, products }) {
+interface RenderButtonsProps {
+    setIndex: (index: number) => void,
+    products: any
+}
 
-        const handleClick = (e) => {
+const MemoizedRenderButtons = React.memo (
+
+    function RenderButtons (props: RenderButtonsProps) {
+
+        const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
             // Update index
-            const newIndex = e.target.getAttribute('data-key');
-            setIndex(newIndex);
+            const newIndex = (e.target as HTMLElement).getAttribute('data-key');
+            props.setIndex(parseInt(newIndex!));
     
             // Update classes
             $('.btn-hl').removeClass('active');
@@ -55,7 +65,7 @@ const MemoizedRenderButtons = React.memo (
     
         return (
             <Row className='justify-content-center mt-3'>
-                { products.map((_, index) => {
+                { props.products.map((_: any, index: number) => {
                     return (
                         <div key={index} data-key={index} className='headline-btns px-0 mx-2 my-1' onClick={handleClick}>
                             {                    
@@ -72,7 +82,13 @@ const MemoizedRenderButtons = React.memo (
     }
 )
 
-function Headline (props) {
+interface HeadlineProps {
+    products: any,
+    toggleModal: () => void,
+    setModalProduct: (product: string) => void
+}
+
+function Headline (props: HeadlineProps) {
     const [index, setIndex] = React.useState(0);
 
     return (
@@ -94,7 +110,10 @@ function Headline (props) {
                     <div id='headline-bg'></div>
                     <div id='headline-form'>
                         <h5 className='mb-3'><strong>Submit your application</strong></h5>
-                        <MyForm colClassName="col-12" buttonInner="CONTACT WITH ME!" />
+                        <MyForm colClassName="col-12"
+                                setId={false}
+                                initProduct=''
+                                buttonInner="CONTACT WITH ME!" />
                     </div>
                     
                 </Col>

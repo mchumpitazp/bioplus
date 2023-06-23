@@ -1,4 +1,3 @@
-import React from "react";
 import MyForm from "./MyFormComponent";
 
 function Form () {
@@ -6,7 +5,10 @@ function Form () {
         <section id="form-section">
             <div id="form-container">
                 <h5 className="mb-3"><strong>Submit your application</strong></h5>
-                <MyForm colClassName="col-12 col-sm-3" setId={true} buttonInner="CONTACT WITH ME!"/>
+                <MyForm colClassName="col-12 col-sm-3"
+                        setId={true}
+                        initProduct=""
+                        buttonInner="CONTACT WITH ME!"/>
             </div>
         </section>
     )

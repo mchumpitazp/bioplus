@@ -20,7 +20,7 @@ function Countdown () {
         }
 
         const baseDeadline = new Date(year, month, 14);        
-        const time = baseDeadline - Date.now();
+        const time = baseDeadline.getTime() - Date.now();
 
         setTimer({
             days:    Math.floor(time / (1000 * 60 * 60 * 24)),

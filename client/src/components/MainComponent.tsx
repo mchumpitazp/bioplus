@@ -13,29 +13,28 @@ import Footer from "./FooterComponent";
 import ModalOrder from "./ModalOrderComponent";
 
 // Redux
-import { connect } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import { fetchProducts } from '../redux/ActionCreators';
-import { Spinner } from "reactstrap";
+import { Spinner } from 'reactstrap';
 
-const mapStateToProps = state => {
-    return { products: state.products }
-}
+function Main () {
+    // Redux
+    const dispatch = useAppDispatch();
+    const products = useAppSelector((state: { products: any; }) => state.products);
 
-const mapDispatchToProps = (dispatch) => ({
-    fetchProducts: () => {dispatch(fetchProducts())}
-})
-
-function Main ({ products, fetchProducts }) {
+    // States
     const [isLoading, setLoading] = React.useState(true);
     const [modal, setModal] = React.useState(false);
     const [modalProduct, setModalProduct] = React.useState('');
     const toggleModal = () => setModal(!modal);
 
-    React.useLayoutEffect(() => fetchProducts(), [fetchProducts]);
+    React.useEffect(() => {
+        dispatch(fetchProducts())
+    }, [dispatch]);
 
     React.useEffect(() => {
         if (!products.isLoading) {
-            products.products.forEach(p => {
+            products.products.forEach((p: { image: string; headline: any; }) => {
                 const img = new Image();
                 img.src = '/images' + p.image;
 
@@ -50,8 +49,8 @@ function Main ({ products, fetchProducts }) {
 
     React.useEffect(() =>{
         if (!isLoading) {
-            document.querySelector('body').style.height = 'auto';
-            document.querySelector('html').style.overflowY = 'auto';
+            (document.querySelector('body') as HTMLElement).style.height = 'auto';
+            (document.querySelector('html') as HTMLElement).style.overflowY = 'auto';
         }
     }, [isLoading]);
 
@@ -63,15 +62,15 @@ function Main ({ products, fetchProducts }) {
         )
     } else {
         return (
-            <React.Fragment>
+            <>
                 <Header />
                 <Headline 
-                    products={products.products.filter(p => p.headline)}
+                    products={products.products.filter((p: { headline: boolean; }) => p.headline)}
                     toggleModal={toggleModal} 
                     setModalProduct={setModalProduct} />
                 <About />
                 <Products 
-                    products={products.products.filter(p => !p.headline)}
+                    products={products.products.filter((p: { headline: boolean; }) => !p.headline)}
                     toggleModal={toggleModal} 
                     setModalProduct={setModalProduct} />
                 <Promo toggleModal={toggleModal} setModalProduct={setModalProduct} />
@@ -80,9 +79,9 @@ function Main ({ products, fetchProducts }) {
                 <Form />
                 <Footer />
                 <ModalOrder modal={modal} toggle={toggleModal} product={modalProduct} />
-            </React.Fragment>
+            </>
         )
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default Main;
